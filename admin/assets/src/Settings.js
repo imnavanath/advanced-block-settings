@@ -4,11 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 /* Main Compnent */
 import '@Admin/Settings.scss';
-import Container from '@Admin/components/Container';
+import EntryContent from '@Admin/components/EntryContent';
 
 ReactDOM.render(
 	<BrowserRouter>
-		<Container />
+		<EntryContent />
 	</BrowserRouter>,
 	document.getElementById( 'wp-bess-settings' )
 );

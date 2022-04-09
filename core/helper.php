@@ -28,7 +28,14 @@ class Helper {
 	public function get_defaults() {
 		return [
 			WP_BESS_SETTINGS  => [
-				'enable_display'  => false,
+				'enable_width'  => true,
+				'enable_custom_css'  => true,
+				'enable_display'  => true,
+				'enable_spacings'  => true,
+				'enable_background' => true,
+				'enable_border' => true,
+				'enable_transform' => true,
+				'enable_motion_effects' => true,
 			],
 			WP_BESS_SUPPORT_SETTINGS   => [
 				'name'         => 'Admin',

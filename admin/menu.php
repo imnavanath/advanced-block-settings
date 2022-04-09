@@ -49,7 +49,7 @@ class Menu {
 	}
 
 	/**
-	 * Adds admin menu for settings page
+	 * Adds admin menu for settings page.
 	 *
 	 * @return void
 	 * @since x.x.x
@@ -58,21 +58,21 @@ class Menu {
 		add_submenu_page(
 			'options-general.php',
 			__( 'Settings - BlockEssentials', 'wp-bess' ),
-			__( 'BlockEssentials', 'wp-bess' ),
+			__( 'Block Essentials', 'wp-bess' ),
 			'administrator',
 			'wp_bess_settings',
-			[ $this, 'render' ],
+			[ $this, 'render_wp_block_essentials' ],
 			57
 		);
 	}
 
 	/**
-	 * Renders main div to implement tailwind UI
+	 * Renders main div to implement tailwind UI.
 	 *
 	 * @return void
 	 * @since x.x.x
 	 */
-	public function render() {
+	public function render_wp_block_essentials() {
 		?>
 			<div class="wp-bess-settings" id="wp-bess-settings"></div>
 		<?php
@@ -175,7 +175,11 @@ class Menu {
 			'enable_custom_css',
 			'enable_display',
 			'enable_spacings',
-			'enable_width'
+			'enable_width',
+			'enable_background',
+			'enable_border',
+			'enable_transform',
+			'enable_motion_effects',
 		];
 
 		foreach ( $data as $key => $value ) {
