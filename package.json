@@ -1,0 +1,23 @@
+{
+	"name": "wp-block-essentials",
+	"version": "1.0.0",
+	"description": "Ultimate & Essentials block settings for every WordPress block.",
+	"author": "Navanath Bhosale",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/imnavanath/wp-block-essentials.git"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^22.2.1"
+	}
+}
