@@ -21,5 +21,7 @@ define( 'WP_BESS_BASE', plugin_basename( WP_BESS_FILE ) );
 define( 'WP_BESS_DIR', plugin_dir_path( WP_BESS_FILE ) );
 define( 'WP_BESS_URL', plugins_url( '/', WP_BESS_FILE ) );
 define( 'WP_BESS_VER', '1.0.0' );
+define( 'WP_BESS_SETTINGS', 'wp_bess_setting' );
+define( 'WP_BESS_SUPPORT_SETTINGS', 'wp_bess_support_settings' );
 
 require_once 'wp-bess-loader.php';

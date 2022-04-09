@@ -78,7 +78,7 @@ class WP_BESS_Loader {
 
 		add_action( 'plugins_loaded', [ $this, 'load_textdomain' ] );
 
-		// add_action( 'plugins_loaded', [ $this, 'setup_classes' ] );
+		add_action( 'plugins_loaded', [ $this, 'setup_classes' ] );
 
 		add_filter( 'plugin_action_links_' . WP_BESS_BASE, [ $this, 'action_links' ] );
 
@@ -92,7 +92,7 @@ class WP_BESS_Loader {
 
 		if ( is_admin() ) {
 			/* Setup Menu */
-			AdminMenu::get_instance();
+			Menu::get_instance();
 		}
 	}
 
@@ -106,15 +106,16 @@ class WP_BESS_Loader {
 
 		$script_asset_path  = array( 'wp-bess-helper', 'wp-block-editor', 'wp-blocks', 'wp-date', 'wp-i18n', 'wp-element', 'wp-edit-post', 'wp-compose', 'underscore', 'wp-hooks', 'wp-components', 'wp-keycodes', 'moment', 'jquery' );
 
+		$version           = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? time() : WP_BESS_VER;
 		$script_asset_path = WP_BESS_DIR . 'build/index.asset.php';
-		$script_info       = file_exists( $script_asset_path ) ? include $script_asset_path : array( 'dependencies' => [], 'version' => WP_BESS_VER );
+		$script_info       = file_exists( $script_asset_path ) ? include $script_asset_path : array( 'dependencies' => [], 'version' => $version );
 		$script_deps 	   = $script_info['dependencies'];
 
 		wp_enqueue_script(
 			'wp-bess-editor',
 			WP_BESS_URL . 'build/index.js',
 			$script_deps,
-			filemtime( WP_BESS_DIR . 'build/index.js' ),
+			$version,
 			true
 		);
 	}

@@ -3,7 +3,7 @@ Contributors:      navanathbhosale
 Tags:              gutenberg, blocks, gutenberg blocks, wordpress blocks, builder, block essentials, block advanced
 Tested up to:      5.9.3
 Stable tag:        1.0.0
-Requires PHP:      7.2
+Requires PHP:      5.6
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
