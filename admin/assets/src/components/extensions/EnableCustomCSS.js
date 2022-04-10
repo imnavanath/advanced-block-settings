@@ -11,7 +11,7 @@ function EnableCustomCSS() {
 		wp_bess_settings.wp_bess_setting.enable_custom_css
 	);
 	return (
-		<div className="bg-white px-4 py-5 sm:px-6">
+		<div className="bg-white px-4 py-5 border-r sm:px-6">
 			<div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
 				<div className="ml-4 mt-4">
 					<h3 className="text-lg leading-6 font-medium text-gray-900">

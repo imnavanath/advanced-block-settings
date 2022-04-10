@@ -1,50 +1,79 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { __ } from '@wordpress/i18n';
 import Icons from '@Admin/components/Icons';
+import { Link, useLocation } from 'react-router-dom';
 
-function Header( props ) {
-	const [ status, setStatus ] = useState( '' );
+function classNames( ...classes ) {
+	return classes.filter( Boolean ).join( ' ' );
+}
 
-	useEffect( () => {
-		setStatus( props.saved );
-	}, [ props.saved ] );
+function Header() {
+	const [ tab, setTab ] = useState( 'main' );
+	const navigation = [
+		{
+			name: __( 'Settings', 'wp-bess' ),
+			slug: 'wp_bess_settings',
+			path: '',
+		},
+		{
+			name: __( 'Support', 'wp-bess' ),
+			slug: 'wp_bess_settings',
+			path: 'support',
+		},
+	];
 
-	function processing() {
-		setStatus( 'processing' );
-	}
+	const query = new URLSearchParams( useLocation()?.search );
+	const activePage = query.get( 'page' )
+		? query.get( 'page' )
+		: cartflows_admin.home_slug;
+	const activePath = query.get( 'path' ) ? query.get( 'path' ) : '';
 
 	return (
 		<div className="sticky top-[30px] right-0 bg-white border-b -ml-5 px-2 py-2 border-t border-gray-200 sm:px-6 z-10">
 			<div className="flex justify-between items-center flex-wrap sm:flex-nowrap">
 				<h2 className="text-lg leading-6 font-medium text-gray-500">
-					{ __( 'WP Block Essentials', 'wp-bess' ) }
+					<span className="inline-block align-middle mr-2">{ Icons.wordpress }</span>
+					<span className="align-middle"> { __( 'Block Essentials', 'wp-bess' ) } </span>
 				</h2>
-				<div className="relative rounded-md shadow-sm">
-					<button
-						type="submit"
-						onClick={ () => {
-							processing();
-						} }
-						className="w-32 justify-center inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-wpcolor"
-					>
-						{ '' === status && (
-							<>{ __( 'Save', 'wp-bess' ) }</>
-						) }
-						{ 'processing' === status && (
-							<>
-								<span>{ Icons.spinner }</span>
-								{ __( 'Saving', 'wp-bess' ) }
-							</>
-						) }
-						{ 'saved' === status && (
-							<>
-								<span className="pr-2">
-									{ Icons[ 'checked-circle' ] }
-								</span>
-								{ __( 'Saved', 'wp-bess' ) }
-							</>
-						) }
-					</button>
+				<div className="py-2 px-2 sm:px-6 lg:py-2 lg:px-0 lg:col-span-3">
+					<nav className="flex">
+						{ navigation.map( ( menu ) => (
+							<Link
+								key={ `?page=${ menu.slug }&path=${ menu.path }` }
+								to={ {
+									pathname: 'admin.php',
+									search: `?page=${ menu.slug }${
+										'' !== menu.path ? '&path=' + menu.path : ''
+									}`,
+								} }
+								className={ classNames(
+									activePage === menu.slug && activePath === menu.path
+										? 'bg-gray-50 text-wpcolor fill-wpcolor wp-bess-menu--active'
+										: 'text-gray-900 fill-gray-900 hover:text-gray-900 hover:bg-gray-50 wp-bess-menu',
+									'group cursor-pointer rounded-md px-3 py-2 flex items-center text-sm font-medium mx-1'
+								) }
+							>
+								{ menu.name }
+							</Link>
+						) ) }
+					</nav>
+				</div>
+				<div className="relative flex rounded-md shadow-sm">
+						<a href="https://github.com/imnavanath" title={ __( 'GitHub Profile', 'wp-bess' ) } target="_blank" id="github" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
+							{ Icons.github }
+						</a>
+						<a href="https://www.linkedin.com/in/navanath-bhosale" title={ __( 'Connect via LinkedIn', 'wp-bess' ) } target="_blank" id="linkedin" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
+							{ Icons.linkedin }
+						</a>
+						<a href="mailto:navanath.bhosale95@gmail.com" title={ __( 'Email me', 'wp-bess' ) } target="_blank" id="email" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
+							{ Icons.email }
+						</a>
+						<a href="https://www.facebook.com/navnath.bhosale.3/" title={ __( 'Connect via Facebook', 'wp-bess' ) } target="_blank" id="facebook" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
+							{ Icons.facebook }
+						</a>
+						<a href="https://www.paypal.com/paypalme/NavanathBhosale" title={ __( 'Donation', 'wp-bess' ) } target="_blank" id="paypal" className="cursor-pointer shadow-sm px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
+							{ Icons.paypal }
+						</a>
 				</div>
 			</div>
 		</div>

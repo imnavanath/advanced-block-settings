@@ -104,8 +104,6 @@ class WP_BESS_Loader {
 	 */
 	public function enqueue_block_editor_assets() {
 
-		$script_asset_path  = array( 'wp-bess-helper', 'wp-block-editor', 'wp-blocks', 'wp-date', 'wp-i18n', 'wp-element', 'wp-edit-post', 'wp-compose', 'underscore', 'wp-hooks', 'wp-components', 'wp-keycodes', 'moment', 'jquery' );
-
 		$version           = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? time() : WP_BESS_VER;
 		$script_asset_path = WP_BESS_DIR . 'build/index.asset.php';
 		$script_info       = file_exists( $script_asset_path ) ? include $script_asset_path : array( 'dependencies' => [], 'version' => $version );

@@ -111,6 +111,8 @@ class Menu {
 			);
 
 			wp_enqueue_style( 'wp_bess_settings', $this->tailwind_asset_path . 'settings.css', [], $version );
+
+			wp_enqueue_style( 'wp_bess_admin_style', WP_BESS_URL . 'admin/assets/css/admin-style.css', [], $version );
 		}
 	}
 

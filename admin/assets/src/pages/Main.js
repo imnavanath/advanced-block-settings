@@ -11,7 +11,7 @@ import EnableCustomCSS from '@Admin/components/extensions/EnableCustomCSS';
 function Main() {
 	return (
 		<>
-			<dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2">
+			<dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-3">
 				<EnableBackground />
 				<EnableBorder />
 				<EnableMotionEffects />
