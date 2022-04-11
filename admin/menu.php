@@ -64,6 +64,21 @@ class Menu {
 			[ $this, 'render_wp_block_essentials' ],
 			57
 		);
+
+		?>
+			<style type="text/css">
+				#menu-settings .wp-submenu li a[href="options-general.php?page=wp_bess_settings"]:before {
+					content: "\f324";
+					font-family: Dashicons;
+					margin-right: 10px;
+					vertical-align: middle;
+					font-size: 16px;
+				}
+				#menu-settings.wp-has-current-submenu .wp-submenu {
+					padding-bottom: 0;
+				}
+				</style>
+		<?php
 	}
 
 	/**
