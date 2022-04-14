@@ -71,7 +71,7 @@ function EntryContent() {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("main", {
     className: "max-w-[80rem] px-1 py-1 mx-auto mt-[2.5rem] bg-white rounded-lg shadow"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "lg:grid lg:gap-x-0 h-full"
+    className: "lg:grid lg:gap-x-0"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "relative m-0 sm:px-6 lg:px-0 lg:col-span-9"
   }, ('main' === path || null === path) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Admin_pages_Main__WEBPACK_IMPORTED_MODULE_5__["default"], null)), 'support' === path && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Admin_pages_Support__WEBPACK_IMPORTED_MODULE_6__["default"], null))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Admin_components_Footer__WEBPACK_IMPORTED_MODULE_7__["default"], {

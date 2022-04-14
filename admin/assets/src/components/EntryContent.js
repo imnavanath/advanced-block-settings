@@ -48,7 +48,7 @@ function EntryContent() {
 				>
 					<Header saved={ saved } />
 					<main className="max-w-[80rem] px-1 py-1 mx-auto mt-[2.5rem] bg-white rounded-lg shadow">
-						<div className="lg:grid lg:gap-x-0 h-full">
+						<div className="lg:grid lg:gap-x-0">
 							<div className="relative m-0 sm:px-6 lg:px-0 lg:col-span-9">
 								{ ( 'main' === path || null === path ) && (
 									<>

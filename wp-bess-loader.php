@@ -184,7 +184,7 @@ class WP_BESS_Loader {
 		$plugin_links = apply_filters(
 			'wp_bess_plugin_action_links',
 			[
-				'wp_bess_settings' => '<a href="' . admin_url( 'settings.php?page=wp_bess_settings' ) . '">' . __( 'Settings', 'wp-bess' ) . '</a>',
+				'wp_bess_settings' => '<a href="' . admin_url( 'options-general.php?page=wp_bess_settings' ) . '">' . __( 'Settings', 'wp-bess' ) . '</a>',
 			]
 		);
 
