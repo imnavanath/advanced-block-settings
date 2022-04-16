@@ -34,7 +34,7 @@ class WP_BESS_Loader {
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
-			self::$instance = new self;
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}
@@ -106,8 +106,11 @@ class WP_BESS_Loader {
 
 		$version           = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? time() : WP_BESS_VER;
 		$script_asset_path = WP_BESS_DIR . 'build/index.asset.php';
-		$script_info       = file_exists( $script_asset_path ) ? include $script_asset_path : array( 'dependencies' => [], 'version' => $version );
-		$script_deps 	   = $script_info['dependencies'];
+		$script_info       = file_exists( $script_asset_path ) ? include $script_asset_path : array(
+			'dependencies' => [],
+			'version'      => $version,
+		);
+		$script_deps       = $script_info['dependencies'];
 
 		wp_enqueue_script(
 			'wp-bess-editor',
@@ -136,7 +139,7 @@ class WP_BESS_Loader {
 		 *
 		 * @param string $lang_dir The languages directory path.
 		 */
-		$lang_dir = apply_filters( 'WP_BESS_languages_directory', $lang_dir );
+		$lang_dir = apply_filters( 'wp_bess_languages_directory', $lang_dir );
 
 		// Traditional WordPress plugin locale filter.
 		global $wp_version;

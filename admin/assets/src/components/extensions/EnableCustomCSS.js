@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import { __ } from '@wordpress/i18n';
 import { Switch } from '@headlessui/react';
+import classNames from '@Admin/components/Helper';
 
-function classNames( ...classes ) {
-	return classes.filter( Boolean ).join( ' ' );
-}
-
-function EnableCustomCSS() {
+export default function EnableCustomCSS() {
 	const [ enable, setEnable ] = useState(
 		wp_bess_settings.wp_bess_setting.enable_custom_css
 	);
 	return (
-		<div className="bg-white px-4 py-5 border-r sm:px-6">
+		<div className="bg-white px-4 py-5 sm:px-6">
 			<div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
 				<div className="ml-4 mt-4">
 					<h3 className="text-lg leading-6 font-medium text-gray-900">
@@ -46,5 +43,3 @@ function EnableCustomCSS() {
 		</div>
 	);
 }
-
-export default EnableCustomCSS;

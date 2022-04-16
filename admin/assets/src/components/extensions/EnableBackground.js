@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import { __ } from '@wordpress/i18n';
 import { Switch } from '@headlessui/react';
+import classNames from '@Admin/components/Helper';
 
-function classNames( ...classes ) {
-	return classes.filter( Boolean ).join( ' ' );
-}
-
-function EnableBackground() {
+export default function EnableBackground() {
 	const [ enable, setEnable ] = useState(
 		wp_bess_settings.wp_bess_setting.enable_background
 	);
@@ -46,5 +43,3 @@ function EnableBackground() {
 		</div>
 	);
 }
-
-export default EnableBackground;

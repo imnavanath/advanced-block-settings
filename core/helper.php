@@ -26,21 +26,25 @@ class Helper {
 	 * @since x.x.x
 	 */
 	public function get_defaults() {
+		$user           = wp_get_current_user();
+		$site_user_name = $user->display_name;
+
 		return [
-			WP_BESS_SETTINGS  => [
-				'enable_width'  => true,
-				'enable_custom_css'  => true,
-				'enable_display'  => true,
-				'enable_spacings'  => true,
-				'enable_background' => true,
-				'enable_border' => true,
-				'enable_transform' => true,
+			WP_BESS_SETTINGS         => [
+				'enable_width'          => true,
+				'enable_custom_css'     => true,
+				'enable_display'        => true,
+				'enable_spacings'       => true,
+				'enable_background'     => true,
+				'enable_layout'         => true,
+				'enable_border'         => true,
+				'enable_transform'      => true,
 				'enable_motion_effects' => true,
 			],
-			WP_BESS_SUPPORT_SETTINGS   => [
-				'name'         => 'Admin',
-				'email'		   => 'site@email.com',
-				'site_url'     => '#',
+			WP_BESS_SUPPORT_SETTINGS => [
+				'name'     => ucfirst( $site_user_name ),
+				'email'    => $user->user_email,
+				'site_url' => '#',
 			],
 		];
 	}

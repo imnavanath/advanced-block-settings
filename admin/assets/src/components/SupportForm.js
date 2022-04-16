@@ -45,7 +45,22 @@ function SupportForm() {
 									name="name"
 									id="name"
 									className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 py-2"
-									placeholder={ '' }
+									placeholder={ wp_bess_settings.wp_bess_support_settings.name }
+								/>
+							</div>
+						</div>
+
+						<div>
+							<label htmlFor="name" className="block text-sm font-medium text-gray-700">
+								{ __( 'Email', 'wp-bess' ) }
+							</label>
+							<div className="mt-1">
+								<input
+									type="email"
+									name="name"
+									id="name"
+									className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 py-2"
+									placeholder={ wp_bess_settings.wp_bess_support_settings.email }
 								/>
 							</div>
 						</div>

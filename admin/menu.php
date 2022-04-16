@@ -104,8 +104,11 @@ class Menu {
 		if ( isset( $_GET['page'] ) && 'wp_bess_settings' === wp_unslash( $_GET['page'] ) ) { // phpcs:ignore
 			$version           = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? time() : WP_BESS_VER;
 			$script_asset_path = WP_BESS_DIR . 'admin/assets/build/settings.asset.php';
-			$script_info       = file_exists( $script_asset_path ) ? include $script_asset_path : array( 'dependencies' => [], 'version' => $version );
-			$script_deps 	   = $script_info['dependencies'];
+			$script_info       = file_exists( $script_asset_path ) ? include $script_asset_path : array(
+				'dependencies' => [],
+				'version'      => $version,
+			);
+			$script_deps       = $script_info['dependencies'];
 
 			wp_enqueue_script(
 				'wp_bess_settings',
@@ -119,9 +122,10 @@ class Menu {
 				'wp_bess_settings',
 				'wp_bess_settings',
 				[
-					'ajax_url'              => admin_url( 'admin-ajax.php' ),
-					'update_nonce'          => wp_create_nonce( 'wp_bess_update_settings' ),
-					WP_BESS_SETTINGS        => $this->helper->get_option( WP_BESS_SETTINGS )
+					'ajax_url'               => admin_url( 'admin-ajax.php' ),
+					'update_nonce'           => wp_create_nonce( 'wp_bess_update_settings' ),
+					WP_BESS_SETTINGS         => $this->helper->get_option( WP_BESS_SETTINGS ),
+					WP_BESS_SUPPORT_SETTINGS => $this->helper->get_option( WP_BESS_SUPPORT_SETTINGS ),
 				]
 			);
 
@@ -188,11 +192,12 @@ class Menu {
 	 */
 	public function sanitize_data( $data ) {
 		$filtered_data = [];
-		$booleans = [
+		$booleans      = [
 			'enable_custom_css',
 			'enable_display',
 			'enable_spacings',
 			'enable_width',
+			'enable_layout',
 			'enable_background',
 			'enable_border',
 			'enable_transform',

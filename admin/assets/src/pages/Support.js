@@ -1,12 +1,10 @@
 import React from 'react';
 import SupportForm from '@Admin/components/SupportForm';
 
-function Support() {
+export default function Support() {
 	return (
 		<>
 			<SupportForm />
 		</>
 	);
 }
-
-export default Support;
