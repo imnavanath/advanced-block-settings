@@ -105,7 +105,7 @@ class WP_BESS_Loader {
 	public function enqueue_block_editor_assets() {
 
 		$version           = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? time() : WP_BESS_VER;
-		$script_asset_path = WP_BESS_DIR . 'build/index.asset.php';
+		$script_asset_path = WP_BESS_DIR . 'assets/build/editor.asset.php';
 		$script_info       = file_exists( $script_asset_path ) ? include $script_asset_path : array(
 			'dependencies' => [],
 			'version'      => $version,
@@ -114,7 +114,7 @@ class WP_BESS_Loader {
 
 		wp_enqueue_script(
 			'wp-bess-editor',
-			WP_BESS_URL . 'build/index.js',
+			WP_BESS_URL . 'assets/build/editor.js',
 			$script_deps,
 			$version,
 			true

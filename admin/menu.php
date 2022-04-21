@@ -21,14 +21,6 @@ class Menu {
 	use Get_Instance;
 
 	/**
-	 * Tailwind assets base url
-	 *
-	 * @var string
-	 * @since x.x.x
-	 */
-	private $tailwind_asset_path = WP_BESS_URL . 'admin/assets/build/';
-
-	/**
 	 * Instance of Helper class
 	 *
 	 * @var object helper
@@ -103,7 +95,7 @@ class Menu {
 
 		if ( isset( $_GET['page'] ) && 'wp_bess_settings' === wp_unslash( $_GET['page'] ) ) { // phpcs:ignore
 			$version           = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? time() : WP_BESS_VER;
-			$script_asset_path = WP_BESS_DIR . 'admin/assets/build/settings.asset.php';
+			$script_asset_path = WP_BESS_DIR . 'assets/build/admin.asset.php';
 			$script_info       = file_exists( $script_asset_path ) ? include $script_asset_path : array(
 				'dependencies' => [],
 				'version'      => $version,
@@ -112,7 +104,7 @@ class Menu {
 
 			wp_enqueue_script(
 				'wp_bess_settings',
-				$this->tailwind_asset_path . 'settings.js',
+				WP_BESS_URL . 'assets/build/admin.js',
 				$script_deps,
 				$version,
 				true
@@ -129,9 +121,9 @@ class Menu {
 				]
 			);
 
-			wp_enqueue_style( 'wp_bess_settings', $this->tailwind_asset_path . 'settings.css', [], $version );
+			wp_enqueue_style( 'wp_bess_settings', WP_BESS_URL . 'assets/build/admin.css', [], $version );
 
-			wp_enqueue_style( 'wp_bess_admin_style', WP_BESS_URL . 'admin/assets/css/admin-style.css', [], $version );
+			wp_enqueue_style( 'wp_bess_admin_style', WP_BESS_URL . 'admin/admin-style.css', [], $version );
 		}
 	}
 
@@ -195,9 +187,9 @@ class Menu {
 		$booleans      = [
 			'enable_custom_css',
 			'enable_display',
+			'enable_layout_options',
 			'enable_spacings',
 			'enable_width',
-			'enable_layout',
 			'enable_background',
 			'enable_border',
 			'enable_transform',

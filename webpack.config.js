@@ -6,20 +6,25 @@ const path = require( 'path' );
 module.exports = {
 	...defaultConfig,
 	entry: {
-		settings: path.resolve(
+		admin: path.resolve(
 			__dirname,
-			'admin/assets/src/Settings.js'
+			'admin/src/Admin.js'
+		),
+		editor: path.resolve(
+			__dirname,
+			'core/src/Editor.js'
 		),
 	},
 	resolve: {
 		alias: {
 			...defaultConfig.resolve.alias,
-			'@Admin': path.resolve( __dirname, 'admin/assets/src/' ),
+			'@Admin': path.resolve( __dirname, 'admin/src/' ),
+			'@Editor': path.resolve( __dirname, 'core/src/' ),
 		},
 	},
 	output: {
 		...defaultConfig.output,
 		filename: '[name].js',
-		path: path.resolve( __dirname, 'admin/assets/build' ),
+		path: path.resolve( __dirname, 'assets/build' ),
 	},
 };

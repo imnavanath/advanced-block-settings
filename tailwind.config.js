@@ -1,5 +1,5 @@
 module.exports = {
-	content: [ './admin/assets/src/**/*.@(js|jsx)' ],
+	content: [ './admin/src/**/*.@(js|jsx)' ],
 	theme: {
 		extend: {
 			colors: {

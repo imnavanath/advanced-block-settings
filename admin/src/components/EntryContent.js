@@ -13,7 +13,7 @@ function EntryContent() {
 	function handleFormSubmit( e ) {
 		e.preventDefault();
 		const formData = new window.FormData();
-		for ( let i = 1; i < e.target.length; i++ ) {
+		for ( let i = 0; i < e.target.length; i++ ) {
 			formData.append( e.target[ i ].name, e.target[ i ].value );
 		}
 
